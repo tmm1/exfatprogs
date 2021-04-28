@@ -1565,9 +1565,9 @@ int main(int argc, char * const argv[])
 out:
 	exfat_show_info(exfat, ui.ei.dev_name, ret);
 err:
-	if (ret == -EINVAL)
+	/*if (ret == -EINVAL)
 		exit_code = FSCK_EXIT_ERRORS_LEFT;
-	else if (ret)
+	else */if (ret)
 		exit_code = FSCK_EXIT_OPERATION_ERROR;
 	else if (exfat->dirty)
 		exit_code = FSCK_EXIT_CORRECTED;
