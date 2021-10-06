@@ -20,7 +20,7 @@ static void usage(void)
 	fprintf(stderr, "\t-l | --print-label                    Print volume label\n");
 	fprintf(stderr, "\t-L | --set-label=label                Set volume label\n");
 	fprintf(stderr, "\t-i | --print-serial                   Print volume serial\n");
-	fprintf(stderr, "\t-L | --set-serial=value               Set volume serial\n");
+	fprintf(stderr, "\t-I | --set-serial=value               Set volume serial\n");
 	fprintf(stderr, "\t-V | --version                        Show version\n");
 	fprintf(stderr, "\t-v | --verbose                        Print debug\n");
 	fprintf(stderr, "\t-h | --help                           Show help\n");
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 
 	/* Mode to change or display volume serial */
 	if (flags == EXFAT_GET_VOLUME_SERIAL) {
-		ret = exfat_show_volume_serial(&bd, &ui);
+		ret = exfat_show_volume_serial(bd.dev_fd);
 		goto close_fd_out;
 	} else if (flags == EXFAT_SET_VOLUME_SERIAL) {
 		ret = exfat_set_volume_serial(&bd, &ui);
